@@ -1,5 +1,10 @@
 using API_Contato.Controllers;
+using API_Contato.Context;
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<AgendaContext>( options => 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoPadrao")));
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
