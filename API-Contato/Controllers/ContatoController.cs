@@ -40,5 +40,21 @@ namespace API_Contato.Controllers
             
             return Ok(contato);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult EditInfoForId(int id, Contato contato)
+        {
+            var contatoEdit = _context.Contatos.Find(id);
+
+            if (contatoEdit == null)
+                return NotFound();
+            
+            contatoEdit.Nome = contato.Nome;
+            contatoEdit.Telefone = contato.Telefone;
+            contatoEdit.Ativo = contato.Ativo;
+
+            _context.SaveChanges();
+            return Ok(contatoEdit);
+        }
     }
 }
