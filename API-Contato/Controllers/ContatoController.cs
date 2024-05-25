@@ -21,11 +21,23 @@ namespace API_Contato.Controllers
         {
             _context = context;
         }
+
         [HttpPost]
         public IActionResult Create(Contato contato)
         {
             _context.Add(contato);
             _context.SaveChanges();
+            return Ok(contato);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetResultForId(int id)
+        {
+            var contato = _context.Contatos.Find(id);
+
+            if(contato == null)
+                return NotFound();
+            
             return Ok(contato);
         }
     }
