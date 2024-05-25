@@ -56,5 +56,19 @@ namespace API_Contato.Controllers
             _context.SaveChanges();
             return Ok(contatoEdit);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteInfoForId(int id)
+        {
+            var contatoDelete = _context.Contatos.Find(id);
+
+            if (contatoDelete == null)
+                return NotFound();
+            
+            _context.Contatos.Remove(contatoDelete);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }
