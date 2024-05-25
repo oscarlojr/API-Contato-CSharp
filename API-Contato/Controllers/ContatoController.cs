@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using API_Contato.Context;
 using API_Contato.Entities;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace API_Contato.Controllers
 {
@@ -39,6 +33,14 @@ namespace API_Contato.Controllers
                 return NotFound();
             
             return Ok(contato);
+        }
+
+        [HttpGet("ObterPorNome")]
+        public IActionResult GetResultForName(string nome)
+        {
+            var contatos = _context.Contatos.Where(contact => contact.Nome.Contains(nome));
+
+            return Ok(contatos);
         }
 
         [HttpPut("{id}")]
