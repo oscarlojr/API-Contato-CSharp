@@ -1,4 +1,4 @@
-# Contato API
+# Contact API
 
 This repository contains the source code for the Contact API, an ASP.NET Core application that manages contacts in an agenda. The API allows you to create, retrieve, edit, and delete contacts. Below are the usage instructions and details of the available routes.
 
