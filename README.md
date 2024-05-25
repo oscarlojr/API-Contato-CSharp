@@ -97,7 +97,6 @@ dotnet run
 
 This `README.md` provides an overview of the API, describes the available endpoints, explains how to configure and run the application, and includes information on how to contribute and the project license.
 
-
 ### Contribution
 Contributions are welcome! Feel free to open issues and pull requests for improvements and fixes.
 
